@@ -1,0 +1,7 @@
+{
+  "name": "Nosreel Nutrition",
+  "description": "A personalized nutrition prescription app for children, featuring OCR prescription scanning, customized plans, and scientific product details.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
