@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, FileText, Package, ShoppingCart, User } from 'lucide-react';
+import { FileText, Package, ShoppingCart, User } from 'lucide-react';
 import { useApp } from '../AppContext';
 import { Tab } from '../types';
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useApp } from '../AppContext';
-import { ChevronLeft, Headphones, Lightbulb, Brain, Heart, Eye, Award } from 'lucide-react';
+import { ChevronLeft, Headphones } from 'lucide-react';
 
 const DhaDetail: React.FC = () => {
   const { goBack, openSupportChat } = useApp();

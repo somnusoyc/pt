@@ -1,4 +1,3 @@
-import React from 'react';
 import { Sku, Plan, ScienceTopic } from './types';
 
 export const RAW_SKUS: Partial<Sku>[] = [

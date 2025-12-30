@@ -4,7 +4,7 @@ import { useApp } from '../AppContext';
 import { SKUS } from '../constants';
 
 const History: React.FC = () => {
-  const { orderSubmitted, setTab, openPayModal } = useApp();
+  const { orderSubmitted, setTab } = useApp();
   const bundleImg = SKUS.find(s => s.name.includes("DHA"))?.img || SKUS[0].img;
 
   return (

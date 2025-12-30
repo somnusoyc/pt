@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppState, CartItem, PayState, Plan, Sku, Tab } from './types';
+import { AppState, PayState, Plan, Sku, Tab } from './types';
 import { AppContext } from './AppContext';
 import TabBar from './components/TabBar';
 import Scan from './pages/Scan';
