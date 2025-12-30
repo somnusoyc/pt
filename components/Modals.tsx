@@ -5,21 +5,21 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export const NoticeModal: React.FC<ModalProps> = ({ onClose }) => {
-  const Section = ({ title, children }: { title: string, children: React.ReactNode }) => (
-    <div className="bg-white rounded-xl p-3.5 shadow-sm mb-2.5">
-      <div className="text-sm font-bold text-gray-900 mb-1.5">{title}</div>
-      {children}
-    </div>
-  );
-  
-  const Item = ({ no, title, desc, border }: { no: string, title: string, desc: string, border?: boolean }) => (
-    <div className={`py-2 ${border ? 'border-b border-gray-50' : ''}`}>
-      <div className="text-[13px] font-semibold text-gray-900">{no} {title}</div>
-      <div className="mt-1 text-xs leading-relaxed text-gray-600">{desc}</div>
-    </div>
-  );
+const NoticeSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  <div className="bg-white rounded-xl p-3.5 shadow-sm mb-2.5">
+    <div className="text-sm font-bold text-gray-900 mb-1.5">{title}</div>
+    {children}
+  </div>
+);
 
+const NoticeItem: React.FC<{ no: string, title: string, desc: string, border?: boolean }> = ({ no, title, desc, border }) => (
+  <div className={`py-2 ${border ? 'border-b border-gray-50' : ''}`}>
+    <div className="text-[13px] font-semibold text-gray-900">{no} {title}</div>
+    <div className="mt-1 text-xs leading-relaxed text-gray-600">{desc}</div>
+  </div>
+);
+
+export const NoticeModal: React.FC<ModalProps> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-6" onClick={onClose}>
       <div className="bg-gray-100 w-full max-w-sm rounded-[18px] max-h-[80vh] flex flex-col overflow-hidden" onClick={e => e.stopPropagation()}>
@@ -30,23 +30,23 @@ export const NoticeModal: React.FC<ModalProps> = ({ onClose }) => {
           <div className="font-bold text-base text-gray-900">用户须知</div>
         </div>
         <div className="overflow-y-auto px-3.5 pb-4">
-          <Section title="一、消费告知书">
-            <Item no="1." title="处方识别" desc="处方识别功能仅用于辅助录入营养处方信息，识别结果不等同于医生诊疗结论，如有疑问请以线下医生处方为准。" border />
-            <Item no="2." title="下单流程" desc="确认处方信息 → 生成推荐营养包 → 核对收货信息与金额 → 提交订单并支付。请在提交前仔细核对处方和地址信息。" border />
-            <Item no="3." title="支付方式" desc="当前支持微信支付等在线支付方式。系统仅在订单提交成功后扣款。" />
-          </Section>
-          <Section title="二、订单取消/修改">
-             <Item no="1." title="修改订单" desc="如需修改收货信息或处方内容，请在订单提交后尽快联系客服处理。" border />
-             <Item no="2." title="取消订单" desc="未发货订单可申请取消，已发货或已签收的订单不支持无理由取消。" />
-          </Section>
-           <Section title="三、物流配送">
-             <Item no="1." title="发货时效" desc="一般在支付成功后1-3个工作日内完成出库。" border />
-             <Item no="2." title="配送方式" desc="默认采用第三方快递公司进行配送。" border />
-             <Item no="3." title="签收须知" desc="签收前请检查外包装完好，如出现破损、渗漏等异常情况，请第一时间拍照并联系客服处理。" />
-          </Section>
-           <Section title="四、售后服务">
-             <Item no="1." title="退货政策" desc="如因质量问题或发错货等原因，需要退换货，请在签收后及时联系客服处理。营养补充剂属于特殊商品，非质量问题暂不支持无理由退货。" />
-          </Section>
+          <NoticeSection title="一、消费告知书">
+            <NoticeItem no="1." title="处方识别" desc="处方识别功能仅用于辅助录入营养处方信息，识别结果不等同于医生诊疗结论，如有疑问请以线下医生处方为准。" border />
+            <NoticeItem no="2." title="下单流程" desc="确认处方信息 → 生成推荐营养包 → 核对收货信息与金额 → 提交订单并支付。请在提交前仔细核对处方和地址信息。" border />
+            <NoticeItem no="3." title="支付方式" desc="当前支持微信支付等在线支付方式。系统仅在订单提交成功后扣款。" />
+          </NoticeSection>
+          <NoticeSection title="二、订单取消/修改">
+             <NoticeItem no="1." title="修改订单" desc="如需修改收货信息或处方内容，请在订单提交后尽快联系客服处理。" border />
+             <NoticeItem no="2." title="取消订单" desc="未发货订单可申请取消，已发货或已签收的订单不支持无理由取消。" />
+          </NoticeSection>
+           <NoticeSection title="三、物流配送">
+             <NoticeItem no="1." title="发货时效" desc="一般在支付成功后1-3个工作日内完成出库。" border />
+             <NoticeItem no="2." title="配送方式" desc="默认采用第三方快递公司进行配送。" border />
+             <NoticeItem no="3." title="签收须知" desc="签收前请检查外包装完好，如出现破损、渗漏等异常情况，请第一时间拍照并联系客服处理。" />
+          </NoticeSection>
+           <NoticeSection title="四、售后服务">
+             <NoticeItem no="1." title="退货政策" desc="如因质量问题或发错货等原因，需要退换货，请在签收后及时联系客服处理。营养补充剂属于特殊商品，非质量问题暂不支持无理由退货。" />
+          </NoticeSection>
         </div>
       </div>
     </div>

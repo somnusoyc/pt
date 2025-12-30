@@ -303,7 +303,7 @@ const NeedCard = ({ img, text }: { img: string, text: string }) => (
     </div>
 );
 
-const TopicCard = ({ topic }: { topic: any }) => {
+const TopicCard: React.FC<{ topic: any }> = ({ topic }) => {
     if (topic.isArticle) {
         return (
             <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-sm group cursor-pointer border border-gray-100">
