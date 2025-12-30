@@ -78,16 +78,8 @@ const Scan: React.FC = () => {
     stopCamera();
 
     try {
-      // User provided API Key and Custom Base URL
-      const apiKey = "sk-ZN2Mw9YLvyw0LMsWawigbQVA7ABUyGxqkow2xDQVi7pgZP7R";
-      const baseUrl = "http://35.235.65.75:3000";
-
-      // Initialize AI client with custom configuration
-      // Using 'any' cast for options to avoid strict type checks if baseUrl is not in the type definition
-      const ai = new GoogleGenAI({ 
-        apiKey,
-        baseUrl
-      } as any);
+      // Use the API key from environment variables as configured
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
       const base64Data = await fileToGenerativePart(imageBlob);
 
